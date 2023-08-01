@@ -93,6 +93,7 @@ function ManageProductsTable({ staff, setStaff, selectedIds, setSelectedIds }) {
             <th className=" p-1 text-xs md:text-base md:p-2">Stock</th>
             <th className=" p-1 text-xs md:text-base md:p-2">Unit</th>
             <th className=" p-1 text-xs md:text-base md:p-2">S Rate</th>
+            <th className=" p-1 text-xs md:text-base md:p-2">Expiry date</th>
             <th className=" p-1 text-xs md:text-base md:p-2">Status</th>
             <th className=" p-1 text-xs md:text-base md:p-2">Action</th>
           </tr>
@@ -123,12 +124,15 @@ function ManageProductsTable({ staff, setStaff, selectedIds, setSelectedIds }) {
               <td className=" p-1 text-xs md:text-base md:p-2">{row.unit}</td>
               <td className=" p-1 text-xs md:text-base md:p-2">{row.sRate}</td>
               <td className=" p-1 text-xs md:text-base md:p-2">
+                {"12th sept 2023"}
+              </td>
+              <td className=" p-1 text-xs md:text-base md:p-2">
                 {row.status === 1 ? (
-                  <div className="p-1 bg-green-300 rounded-md text-center text-green-800 font-bold">
+                  <div className="p-1 text-xs bg-green-300 rounded-md w-max px-4 text-center text-green-800 font-bold">
                     Approved
                   </div>
                 ) : (
-                  <div className="p-1 bg-red-300 rounded-md text-center text-red-700 font-bold">
+                  <div className="p-1 text-xs bg-red-300 rounded-md  w-max px-4 text-center text-red-700 font-bold">
                     UnApproved
                   </div>
                 )}

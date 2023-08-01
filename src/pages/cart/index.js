@@ -1,48 +1,11 @@
-import PrimaryButton from "@/components/Buttons/PrimaryButton";
-import { ChevronRightIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import { Disclosure } from "@headlessui/react";
 
 const Cart = () => {
   const [quantity, setQuantity] = useState(0);
 
   return (
-    <div>
-      {/* ------------BREADCRUMS------------------------- */}
-      <nav className="flex h-max" aria-label="Breadcrumb">
-        <ol className="inline-flex items-center space-x-1 md:space-x-1">
-          <li className="inline-flex items-center">
-            <a
-              href="/dashboard"
-              className="inline-flex items-center text-xs font-medium text-gray-500 hover:text-bluePrimary dark:text-gray-400 dark:hover:text-white"
-            >
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <div className="flex items-center">
-              <ChevronRightIcon className="w-4 -mt-px text-gray-500" />
-              <a
-                href="#"
-                className="text-xs font-medium text-gray-500 hover:text-bluePrimary ml-1 dark:text-gray-400 dark:hover:text-white"
-              >
-                Product Details
-              </a>
-            </div>
-          </li>
-          <li>
-            <div className="flex items-center">
-              <ChevronRightIcon className="w-4 -mt-px text-gray-500" />
-              <a
-                href="#"
-                className="text-xs font-medium text-gray-500 hover:text-bluePrimary ml-1 dark:text-gray-400 dark:hover:text-white"
-              >
-                Cart
-              </a>
-            </div>
-          </li>
-        </ol>
-      </nav>
-
+    <div className="mt-10 w-full">
       {/* ------------Page Heading---------------- */}
       <div className="text-gray-800 text-2xl font-bold my-5">Order Summary</div>
 
@@ -50,10 +13,9 @@ const Cart = () => {
       <div className="w-full p-3 bg-indigo-600 rounded-md flex justify-between items-center">
         <div className="text-white text-xl">Saved Addresses</div>
         <div className="w-60">
-          <PrimaryButton
-            text={"Enter delivery Pincode"}
-            color={"bg-yellow-500"}
-          />
+          <button className="bg-yellowPrimary px-6 py-2 rounded-md">
+            Enter delivery address
+          </button>
         </div>
       </div>
       {/* ----------GRID CONTAINER---------- */}
@@ -70,21 +32,21 @@ const Cart = () => {
                 <div className="text-base font-medium text-gray-800">
                   Scalpe Plus Anti Dandruff Shampoo 75 ml
                 </div>
-                <div className="text-sm font-normal text-gray-500">
+                <div className="text-sm font-normal text-textGray">
                   Mfr: Glenmark Pharmaceuticals Ltd
                 </div>
                 <div className="flex w-full justify-between items-center">
                   <div className="flex w-full space-x-4 itemms-center">
-                    <div className="text-lg text-pink-500 font-semibold">
+                    <div className="text-lg text-pinkPrimary font-semibold">
                       ₹ 657.66
                     </div>
-                    <div className="text-lg text-gray-500 line-through font-semibold">
+                    <div className="text-lg text-textGray line-through font-semibold">
                       ₹ 657.66
                     </div>
                   </div>
                   <div className="flex space-x-2 items-center">
                     <button
-                      className="text-lg text-gray-500 hover:scale-105 font-semibold"
+                      className="text-lg text-textGray hover:scale-105 font-semibold"
                       onClick={() => {
                         if (quantity > 0) setQuantity(quantity - 1);
                       }}
@@ -97,7 +59,7 @@ const Cart = () => {
                       onChange={(e) => setQuantity(e.target.value)}
                     />
                     <button
-                      className="text-lg text-gray-500 hover:scale-105 font-semibold"
+                      className="text-lg text-textGray hover:scale-105 font-semibold"
                       onClick={() => setQuantity(quantity + 1)}
                     >
                       +
@@ -105,7 +67,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="flex w-full justify-between items-center mt-2">
-                  <div className="text-sm font-normal text-gray-500">
+                  <div className="text-sm font-normal text-textGray">
                     Delivery between FEB 5 - FEB 6
                   </div>
                   <div className="flex space-x-3">
@@ -121,7 +83,7 @@ const Cart = () => {
                     <div className="w-24">
                       <button
                         className={
-                          "rounded-md bg-pink-500 text-white w-full py-2 hover:bg-pink-700"
+                          "rounded-md bg-pinkPrimary text-white w-full py-2 hover:bg-pink-700"
                         }
                       >
                         Remove
@@ -132,6 +94,99 @@ const Cart = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="w-full md:col-span-3">
+          <div className="bg-white shadow rounded-xl p-3">
+            <div className="text-lg font-normal text-textGray mb-2">
+              APPLY PROMOCODE / NMS SUPERCASH
+            </div>
+            <div className="my-2 h-px w-full bg-gray-200"></div>
+
+            <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="flex w-full justify-between rounded-lg  items-center py-2 text-left text-sm font-medium ">
+                      <div>
+                        <span className="text-lg font-medium">
+                          Apply Promo Code
+                        </span>
+                        <div className="text-xs font-medium">
+                          Get flat discount! Vouchers applicable in payment
+                          options.
+                        </div>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className={`${
+                          open ? "rotate-180 transform h-5 w-5" : "h-5 w-5"
+                        } h-5 w-5`}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                        />
+                      </svg>
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                      {[0, 1, 2, 3].map((item, index) => (
+                        <li>Coupon Code {index + 1}</li>
+                      ))}
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            </div>
+          </div>
+          <div className="bg-white mt-10 shadow rounded-xl p-3">
+            <div className="text-lg font-normal text-textGray mb-2">
+              PAYMENT DETAILS
+            </div>
+            <div className="my-2 h-px w-full bg-gray-200"></div>
+
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 font-semibold">MRP Total</div>
+              <div className=" text-textGray">₹ 1600.00</div>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 font-semibold">Additional Discount</div>
+              <div className=" text-textGray">- ₹ 600.00</div>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 font-semibold">Total Amount</div>
+              <div className=" text-textGray">₹ 1000.00</div>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 font-semibold">Delivery Charges</div>
+              <div className=" text-textGray">₹ 00.00</div>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 text-bluePrimary font-semibold">
+                Total Payable
+              </div>
+              <div className="text-bluePrimary font-semibold">₹ 1000.00</div>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 text-green-400 text-sm font-medium">
+                Total Savings
+              </div>
+              <div className="text-green-400 text-sm font-medium">₹ 600.00</div>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex-1 text-textGray font-semibold">
+                Total Payable
+              </div>
+              <div className="text-bluePrimary font-semibold">₹ 1000.00</div>
+            </div>
+            <button className="w-full p-2 bg-bluePrimary text-white rounded-md">
+              Proceed to pay
+            </button>
+          </div>
         </div>
       </div>
     </div>

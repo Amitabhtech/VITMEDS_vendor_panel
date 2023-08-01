@@ -26,6 +26,12 @@ const navigation = [
     current: false,
   },
   {
+    name: "Order Management",
+    href: "/order-management",
+    icon: CalendarIcon,
+    current: false,
+  },
+  {
     name: "Manage Products",
     href: "/manage-products",
     icon: CalendarIcon,

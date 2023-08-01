@@ -89,7 +89,7 @@ const Profile = () => {
           <div>Feedback</div>
           {tab === 3 && <div className="h-[2px]  bg-gray-800 w-10"></div>}
         </div>
-        <div
+        {/* <div
           className={
             tab === 4
               ? "text-gray-800 md:text-2xl p-2 rounded-lg"
@@ -99,7 +99,7 @@ const Profile = () => {
         >
           <div>Order Management</div>
           {tab === 4 && <div className="h-[2px]  bg-gray-800 w-10"></div>}
-        </div>
+        </div> */}
         <div
           className={
             tab === 5
@@ -111,7 +111,7 @@ const Profile = () => {
           <div>Service Level Agreement</div>
           {tab === 5 && <div className="h-[2px]  bg-gray-800 w-10"></div>}
         </div>
-        <div
+        {/* <div
           className={
             tab === 6
               ? "text-gray-800 md:text-2xl p-2 rounded-lg"
@@ -121,7 +121,7 @@ const Profile = () => {
         >
           <div>Support</div>
           {tab === 6 && <div className="h-[2px]  bg-gray-800 w-10"></div>}
-        </div>
+        </div> */}
       </div>
 
       {/* CONTENT ACCORDING TO THE ACTIVE TAB */}

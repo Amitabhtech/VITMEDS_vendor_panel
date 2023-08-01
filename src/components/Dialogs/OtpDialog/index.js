@@ -3,11 +3,12 @@ import { Fragment, useState } from "react";
 import OtpInput from "../../OtpInput";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function OtpDialog({ open, setOpen }) {
   const [otp, setOtp] = useState("");
   const [verifyDialog, setVerifyDialog] = useState(false);
-
+  const router = useRouter();
   const closeModal = () => {
     setOpen(false);
     setVerifyDialog(false);
@@ -82,7 +83,10 @@ export default function OtpDialog({ open, setOpen }) {
                     <div className="text-xs text-gray-500 mt-5">
                       Waiting for OTP... 29 Sec
                     </div>
-                    <div className="my-5" onClick={() => setVerifyDialog(true)}>
+                    <div
+                      className="my-5"
+                      onClick={() => router.push("/dashboard")}
+                    >
                       <PrimaryButton text={"Verify"} color={"bg-[#575AE5]"} />
                     </div>
                     <div className="text-xs mx-auto text-gray-800  font-semibold cursor-pointer hover:bg-slate-100 px-2 py-2 rounded-md shadow w-max">
