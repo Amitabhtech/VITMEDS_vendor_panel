@@ -15,6 +15,7 @@ import {
   CurrencyRupeeIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
@@ -43,6 +44,18 @@ const navigation = [
     icon: UserCircleIcon,
     current: false,
   },
+  {
+    name: "Reviews",
+    href: "/reviews",
+    icon: UserCircleIcon,
+    current: false,
+  },
+  {
+    name: "Support",
+    href: "/support",
+    icon: UserCircleIcon,
+    current: false,
+  },
   { name: "logout", href: "/", icon: LogoutIcon, current: false },
 ];
 
@@ -50,6 +63,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const SideBar = () => {
+  const router = useRouter();
+
   return (
     <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
       {/* Sidebar component, swap this element with another sidebar if you like */}
@@ -69,7 +84,7 @@ const SideBar = () => {
                 <a
                   key={item.name}
                   className={classNames(
-                    item.current
+                    item.href === router.pathname
                       ? "bg-bluePrimary text-white"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
                     "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -77,7 +92,7 @@ const SideBar = () => {
                 >
                   <item.icon
                     className={classNames(
-                      item.current
+                      item.href === router.pathname
                         ? "text-white"
                         : "text-gray-400 group-hover:text-gray-500",
                       "mr-3 flex-shrink-0 h-6 w-6"
